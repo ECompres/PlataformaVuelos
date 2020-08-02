@@ -1,0 +1,27 @@
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Pais de destino</th>
+            <th scope="col">Codigo</th>
+            <th scope="col">Fecha y hora de salida</th>
+            <th scope="col">Tiempo de vuelo</th>
+            <th scope="col">Pasajeros</th>
+            <th scope="col">Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let x of vuelos">
+            <td>{{x.pais}}</td>
+            <td>{{x.codigo}}</td>
+            <td>{{x.fechaHora | date:'short'}}</td>
+            <td>{{x.tiempoVuelo}}</td>
+            <td>{{x.pasajeros.length}}</td>
+            <td>
+                <a name="" id="" class="btn btn-primary" [routerLink]="['/detailVuelo', x.id]" role="button">Detalles</a>
+                <a name="" id="" class="btn btn-warning" role="button" style="margin:0 10px;"
+                    [routerLink]="[ '/updateVuelo', x.id]">Modificar</a>
+                <a name="" id="" class="btn btn-danger" role="button" (click)="deleteVuelo(x.id)">Eliminar</a>
+            </td>
+        </tr>
+    </tbody>
+</table>

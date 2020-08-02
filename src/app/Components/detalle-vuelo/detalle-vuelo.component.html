@@ -1,0 +1,30 @@
+<a name="" id="" class="btn btn-danger" [routerLink]="['/listarVuelos']" role="button">Regresar</a>
+
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+        <h1 class="display-4">Vuelo {{vuelo.codigo}} </h1>
+        <h2 class="display-4">Destino: {{vuelo.pais}}</h2>
+        <p class="lead">Fecha de salida: {{vuelo.fechaHora | date:'shortDate'}} </p>
+        <p class="lead">Hora: {{vuelo.fechaHora | date:'shortTime'}} </p>
+        <h2 class="display-4">Pasajeros ({{vuelo.pasajeros.length}}) </h2>
+        <table class="table">
+            <thead>
+                <tr>
+
+                    <th scope="col">Nombres</th>
+                    <th scope="col">Apellidos</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Edad</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let x of vuelo.pasajeros">
+                    <td>{{x.nombres}}</td>
+                    <td>{{x.apellidos}}</td>
+                    <td>{{x.email}}</td>
+                    <td>{{x.edad}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

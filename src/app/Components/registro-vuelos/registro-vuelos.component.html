@@ -1,0 +1,24 @@
+<h1>Crear vuelo</h1>
+<form #formVuelo="ngForm" (ngSubmit)="onSubmit(formVuelo)" action="">
+    <div class="form-group">
+        <label for="exampleFormControlSelect1">País de destino</label>
+        <select class="form-control" id="exampleFormControlSelect1" #pais="ngModel" [(ngModel)]="vuelo.pais" name="pais">
+            <option *ngFor="let x of paises">{{x.name}}</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Codigo vuelo</label>
+        <input type="text" class="form-control" id="exampleInputEmail1" #codigo="ngModel"
+            [(ngModel)]="vuelo.codigo" aria-describedby="emailHelp" required name="codigo">
+    </div>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Fecha y hora de salida:</label>
+        <input type="datetime-local" class="form-control" id="exampleInputEmail1" #fechaHora="ngModel" [(ngModel)]="vuelo.fechaHora" aria-describedby="emailHelp" required name="fechaHora">
+        {{vuelo.fechaHora}}
+    </div>
+    <div class="form-group">
+        <label for="exampleInputPassword1">Tiempo de vuelo:</label>
+        <input type="text" class="form-control" id="exampleInputPassword1" #tiempoVuelo="ngModel" [(ngModel)]="vuelo.tiempoVuelo" required name="tiempoVuelo">
+    </div>
+    <button type="submit" [disabled]="!formVuelo.form.valid" class="btn btn-dark">Crear vuelo</button>
+</form>
